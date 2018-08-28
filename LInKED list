@@ -24,6 +24,36 @@ void insert(struct node** href,int x)
   new->next=*href;
   *href=new;
 }
+void insertat(struct node* prev_node,int x)
+{
+  if(prev_node==NULL)
+  {
+    printf("prevoius can't be equall to null");
+  }
+  else
+  {
+    struct node* new=(struct node *)malloc(sizeof(struct node));
+    new->data=x;
+    new->next=prev_node->next;
+    prev_node->next=new;
+  }
+}
+void append_at_end(struct node** href,int x)
+{
+  struct node* new=(struct node*)malloc(sizeof(struct node));
+  struct node* last=*href;
+  new->data=x;
+  new->next=NULL;
+  if(*href==NULL)
+  {
+    *href=new;
+  }
+  while(last->next!=NULL)
+  {
+    last=last->next;
+  }
+  last->next=new;
+}
 
 
 int main()
@@ -47,6 +77,10 @@ int main()
     printf("\nenter the data to be inserted:");
     scanf("%d",&x);
     insert(&head,x);
+
+   //insertion at given position.
+    insertat(head->next->next,9);
+    append_at_end(&head,10);
      printlist(head);
     return 0;
 }
