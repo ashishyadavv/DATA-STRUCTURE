@@ -1,10 +1,10 @@
 # DATA-STRUCTURE
  LINKED LIST
  
- .creation
+ <>Creation
  
- .insertion at beginning
+ <>Insertion at beginning
  
- .insertion at given position
+ <>Insertion at given position
  
- .insertion at end
+ <>Insertion at end
