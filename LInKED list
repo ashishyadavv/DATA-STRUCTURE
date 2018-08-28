@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<stdlib.h>
+ //CREATION OF LIST AND TRAVERSAL.
+struct node
+{
+    int data;
+    struct node* next;
+
+};
+
+void printlist(struct node *head)
+{
+  while(head!=NULL)
+  {
+    printf("%d ",head->data);
+    head=head->next;
+  }
+
+}
+void insert(struct node** href,int x)
+{
+  struct node * new=(struct node*)malloc(sizeof(struct node*));
+  new->data=x;
+  new->next=*href;
+  *href=new;
+}
+
+
+int main()
+{
+   // struct node* head=NULL;
+   // struct node* second=NULL;
+    //struct node* third=NULL;
+    struct node* head=(struct node *)malloc(sizeof(struct node));
+    struct node* second=(struct node*)malloc(sizeof(struct node));
+    struct node* third=(struct node*)malloc(sizeof(struct node));
+    head->data=1;
+    head->next=second;
+
+    second->data=2;
+    second->next=third;
+
+    third->data=3;
+    third->next=NULL;
+   
+    int x;
+    printf("\nenter the data to be inserted:");
+    scanf("%d",&x);
+    insert(&head,x);
+     printlist(head);
+    return 0;
+}
